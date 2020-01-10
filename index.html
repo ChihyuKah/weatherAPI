@@ -13,27 +13,38 @@
 </head>
 <body>
 
-<form action="#" method="post">
+<!--<form action="#" method="post">-->
+<!--    <div class="field">-->
+<!--        <p>Fill in your city</p>-->
+<!--        <input type="text" name="hero-id" id="hero-id" />-->
+<!--    </div>-->
+<!--    <div class="actions">-->
+<!--        <button type="button" id="searchBTN">Search</button>-->
+<!--    </div>-->
+
+<!--</form>-->
+
+<form>
     <div class="field">
-        <label for="hero-id">Fill in your city of choice</label>
-        <input type="text" name="hero-id" id="hero-id" />
+        <h1>Fill in your city<br></h1>
+        <input id="fillin" type="text">
+        <br>
+        <input id="submit" type="submit" value="Search">
     </div>
-    <div class="actions">
-        <button type="button" id="searchBTN">Search</button>
-    </div>
-    <section class="material">
-        <template id="tpl-hero">
-            <li class="hero">
-                <h4 class="title">
-                    <strong class="name"></strong>
-                    <em class="alter-ego"></em>
-                </h4>
-                <p class="powers"></p>
-            </li>
-        </template>
-        <ol id="target"></ol>
-    </section>
 </form>
+
+<section class="material">
+    <template id="tpl-hero">
+        <li class="hero">
+            <h4 class="title">
+                <strong class="name"></strong>
+                <em class="alter-ego"></em>
+            </h4>
+            <p class="powers"></p>
+        </li>
+    </template>
+    <ol id="target"></ol>
+</section>
 
 <!-- Optional JavaScript -->
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
