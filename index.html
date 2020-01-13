@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css" />
+
     <title>WeatherAPI</title>
 </head>
 <body>
@@ -26,13 +27,17 @@
 
 <form>
     <div class="field">
-        <h1>Fill in your city<br></h1>
+        <h1>Weather of city: <br></h1>
         <input id="fillin" type="text">
         <br>
-        <input id="submit" type="submit" value="Search">
+        <button type="button" id="search">Search</button>
     </div>
 </form>
-
+<div id="day1"></div>
+<div id="day2"></div>
+<div id="day3"></div>
+<div id="day4"></div>
+<div id="day5"></div>
 <section class="material">
     <template id="tpl-hero">
         <li class="hero">
@@ -48,6 +53,7 @@
 
 <!-- Optional JavaScript -->
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="weather.js"></script>
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
