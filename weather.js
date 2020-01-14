@@ -2,7 +2,6 @@
 let city;
     document.getElementById("search").addEventListener("click",function () {
         city = document.getElementById("fillin").value;
-        console.log(city);
         fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&APPID=106ed85f74e2ab147bdf97bdb04d0ba5`)
 
             .then((response => {
@@ -31,17 +30,15 @@ let city;
 
 
 
-                document.getElementById("day1").innerHTML = avgTempcalc(day1);
-                document.getElementById("day2").innerHTML = avgTempcalc(day2);
-                document.getElementById("day3").innerHTML = avgTempcalc(day3);
-                document.getElementById("day4").innerHTML = avgTempcalc(day4);
-                document.getElementById("day5").innerHTML = avgTempcalc(day5);
 
-                document.getElementById("descrip1").innerHTML = disc1;
-                document.getElementById("descrip2").innerHTML = disc2;
-                document.getElementById("descrip3").innerHTML = disc3;
-                document.getElementById("descrip4").innerHTML = disc4;
-                document.getElementById("descrip5").innerHTML = disc5;
+
+                document.getElementById("day1").innerHTML = avgTempcalc(day1) + "&#8451";
+                document.getElementById("day2").innerHTML = avgTempcalc(day2) + "&#8451";
+                document.getElementById("day3").innerHTML = avgTempcalc(day3) + "&#8451";
+                document.getElementById("day4").innerHTML = avgTempcalc(day4) + "&#8451";
+                document.getElementById("day5").innerHTML = avgTempcalc(day5) + "&#8451";
+
+
 
 
                 // console.log(avgTempcalc([1,2,3,4,5]));
@@ -53,13 +50,30 @@ let city;
                 let disc3 = discrip.slice(16,24);
                 let disc4 = discrip.slice(24,32);
                 let disc5 = discrip.slice(32,40);
-                var counts = {};
-                var compare = 0;
-                var mostFrequent;
 
-                (function(arr){
-                    for(var i = 0, len = arr.length; i < len; i++){
-                        var word = arr[i];
+
+
+
+                var allDescrip = [disc1, disc2, disc3, disc4, disc5];
+
+
+                for (let i = 0; i <allDescrip[0].length; i++) {
+                    // console.log(allDescrip);
+                    // console.log(discrip)
+                }
+                // document.getElementById("search").addEventListener("click", function cycle() {
+                //     for (let i = 0; i < 5 ; i++) {
+                //         console.log(cycle(disc1,disc2,disc3,disc4,disc5))
+                //     }
+                // });
+
+
+                let counts = {};
+                let compare = 0;
+                let mostFrequent;
+                function frequency(array){
+                    for(let i = 0, len = array.length; i < len; i++){
+                        let word = array[i];
 
                         if(counts[word] === undefined){
                             counts[word] = 1;
@@ -68,27 +82,23 @@ let city;
                         }
                         if(counts[word] > compare){
                             compare = counts[word];
-                            mostFrequent = disc1[i];
+                            mostFrequent = array[i];
                         }
                     }
-                    console.log(mostFrequent)
-                })(cats);
+                    return mostFrequent;
+                }
+
+
+                document.getElementById("descrip1").innerHTML = frequency(disc1);
+                document.getElementById("descrip2").innerHTML = frequency(disc2);
+                document.getElementById("descrip3").innerHTML = frequency(disc3);
+                document.getElementById("descrip4").innerHTML = frequency(disc4);
+                document.getElementById("descrip5").innerHTML = frequency(disc5);
+
+
 
             })
 
 
     });
 
-// for (let i = 0; i < 8; i++) {
-//
-//     let avgTemp = data.list[i].main.temp;
-//     console.log(avgTemp);
-//
-//     let avg = Math.mean(avgTemp)
-//
-//     console.log(avg)
-//
-//
-//     // let total = 0
-//     // let total = data
-// }
