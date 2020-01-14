@@ -28,11 +28,8 @@ let city;
                 let day4 = tempArray.slice(24,32);
                 let day5 = tempArray.slice(32,40);
 
-                let disc1 = discrip.slice(0,8);
-                let disc1 = discrip.slice(8,16);
-                let disc1 = discrip.slice(16,24);
-                let disc1 = discrip.slice(24,32);
-                let disc1 = discrip.slice(32,40);
+
+
 
                 document.getElementById("day1").innerHTML = avgTempcalc(day1);
                 document.getElementById("day2").innerHTML = avgTempcalc(day2);
@@ -40,13 +37,46 @@ let city;
                 document.getElementById("day4").innerHTML = avgTempcalc(day4);
                 document.getElementById("day5").innerHTML = avgTempcalc(day5);
 
-                console.log(avgTempcalc([1,2,3,4,5]));
-                console.log(tempArray);
-                console.log(disc1);
-                console.log(day1)
-              // console.log(data);
-              // console.log(data.list[0].main.temp)
+                document.getElementById("descrip1").innerHTML = disc1;
+                document.getElementById("descrip2").innerHTML = disc2;
+                document.getElementById("descrip3").innerHTML = disc3;
+                document.getElementById("descrip4").innerHTML = disc4;
+                document.getElementById("descrip5").innerHTML = disc5;
+
+
+                // console.log(avgTempcalc([1,2,3,4,5]));
+                // console.log(tempArray);
+                // console.log(disc1);
+                // console.log(day2)
+                let disc1 = discrip.slice(0,8);
+                let disc2 = discrip.slice(8,16);
+                let disc3 = discrip.slice(16,24);
+                let disc4 = discrip.slice(24,32);
+                let disc5 = discrip.slice(32,40);
+                var counts = {};
+                var compare = 0;
+                var mostFrequent;
+
+                (function(arr){
+                    for(var i = 0, len = arr.length; i < len; i++){
+                        var word = arr[i];
+
+                        if(counts[word] === undefined){
+                            counts[word] = 1;
+                        }else{
+                            counts[word] = counts[word] + 1;
+                        }
+                        if(counts[word] > compare){
+                            compare = counts[word];
+                            mostFrequent = disc1[i];
+                        }
+                    }
+                    console.log(mostFrequent)
+                })(cats);
+
             })
+
+
     });
 
 // for (let i = 0; i < 8; i++) {
