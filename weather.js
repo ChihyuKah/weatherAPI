@@ -2,6 +2,8 @@
 let city;
     document.getElementById("search").addEventListener("click",function () {
         city = document.getElementById("fillin").value;
+
+        //fetching data from the API
         fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&APPID=106ed85f74e2ab147bdf97bdb04d0ba5`)
 
             .then((response => {
@@ -19,7 +21,7 @@ let city;
                 let maxTemp = [];
 
 
-                console.log(data)
+                //getting the information from the Data
                 for (let i = 0; i < 40 ; i++) {
                 tempArray.push(data.list[i].main.temp);
                 minTemp.push(data.list[i].main.temp_min);
@@ -49,18 +51,18 @@ let city;
                 let day5 = tempArray.slice(32,40);
 
 
+                //pushing everything to HTML
+                document.getElementById("mintemp1").innerHTML = "Warmest Temp" + " " + avgTempcalc(min1) + "&#8451";
+                document.getElementById("mintemp2").innerHTML = "Warmest Temp" + " " + avgTempcalc(min1) + "&#8451";
+                document.getElementById("mintemp3").innerHTML = "Warmest Temp" + " " + avgTempcalc(min1) + "&#8451";
+                document.getElementById("mintemp4").innerHTML = "Warmest Temp" + " " + avgTempcalc(min1) + "&#8451";
+                document.getElementById("mintemp5").innerHTML = "Warmest Temp" + " " + avgTempcalc(min1) + "&#8451";
 
-                document.getElementById("mintemp1").innerHTML = "Min" + " " + avgTempcalc(min1) + "&#8451";
-                document.getElementById("mintemp2").innerHTML = "Min" + " " + avgTempcalc(min1) + "&#8451";
-                document.getElementById("mintemp3").innerHTML = "Min" + " " + avgTempcalc(min1) + "&#8451";
-                document.getElementById("mintemp4").innerHTML = "Min" + " " + avgTempcalc(min1) + "&#8451";
-                document.getElementById("mintemp5").innerHTML = "Min" + " " + avgTempcalc(min1) + "&#8451";
-
-                document.getElementById("maxtemp1").innerHTML = "Max" + " " + avgTempcalc(max1) + "&#8451";
-                document.getElementById("maxtemp2").innerHTML = "Max" + " " + avgTempcalc(max2) + "&#8451";
-                document.getElementById("maxtemp3").innerHTML = "Max" + " " + avgTempcalc(max3) + "&#8451";
-                document.getElementById("maxtemp4").innerHTML = "Max" + " " + avgTempcalc(max4) + "&#8451";
-                document.getElementById("maxtemp5").innerHTML = "Max" + " " + avgTempcalc(max5) + "&#8451";
+                document.getElementById("maxtemp1").innerHTML = "Coldest Temp" + " " + avgTempcalc(max1) + "&#8451";
+                document.getElementById("maxtemp2").innerHTML = "Coldest Temp" + " " + avgTempcalc(max2) + "&#8451";
+                document.getElementById("maxtemp3").innerHTML = "Coldest Temp" + " " + avgTempcalc(max3) + "&#8451";
+                document.getElementById("maxtemp4").innerHTML = "Coldest Temp" + " " + avgTempcalc(max4) + "&#8451";
+                document.getElementById("maxtemp5").innerHTML = "Coldest Temp" + " " + avgTempcalc(max5) + "&#8451";
 
                 document.getElementById("day1").innerHTML = avgTempcalc(day1) + "&#8451";
                 document.getElementById("day2").innerHTML = avgTempcalc(day2) + "&#8451";
@@ -70,7 +72,7 @@ let city;
 
 
 
-
+                //Descriptions of the weather days
                 let disc1 = discrip.slice(0,8);
                 let disc2 = discrip.slice(8,16);
                 let disc3 = discrip.slice(16,24);
