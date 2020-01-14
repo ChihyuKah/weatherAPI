@@ -15,12 +15,33 @@ let city;
                 //empty array
                 let tempArray = [];
                 let discrip  =[];
+                let minTemp = [];
+                let maxTemp = [];
 
+
+                console.log(data)
                 for (let i = 0; i < 40 ; i++) {
                 tempArray.push(data.list[i].main.temp);
+                minTemp.push(data.list[i].main.temp_min);
+                maxTemp.push(data.list[i].main.temp_max);
                 discrip.push(data.list[i].weather[0].description)
                 }
 
+                // getting the values of the minimum temp
+                let min1 = minTemp.slice(0,8);
+                let min2 = minTemp.slice(8,16);
+                let min3 = minTemp.slice(16,24);
+                let min4 = minTemp.slice(24,32);
+                let min5 = minTemp.slice(32,40);
+
+                // getting the values of the maximum temp
+                let max1 = maxTemp.slice(0,8);
+                let max2 = maxTemp.slice(8,16);
+                let max3 = maxTemp.slice(16,24);
+                let max4 = maxTemp.slice(24,32);
+                let max5 = maxTemp.slice(32,40);
+
+                //getting the values of the normal temp
                 let day1 = tempArray.slice(0,8);
                 let day2 = tempArray.slice(8,16);
                 let day3 = tempArray.slice(16,24);
@@ -29,8 +50,17 @@ let city;
 
 
 
+                document.getElementById("mintemp1").innerHTML = "Min" + " " + avgTempcalc(min1) + "&#8451";
+                document.getElementById("mintemp2").innerHTML = "Min" + " " + avgTempcalc(min1) + "&#8451";
+                document.getElementById("mintemp3").innerHTML = "Min" + " " + avgTempcalc(min1) + "&#8451";
+                document.getElementById("mintemp4").innerHTML = "Min" + " " + avgTempcalc(min1) + "&#8451";
+                document.getElementById("mintemp5").innerHTML = "Min" + " " + avgTempcalc(min1) + "&#8451";
 
-
+                document.getElementById("maxtemp1").innerHTML = "Max" + " " + avgTempcalc(max1) + "&#8451";
+                document.getElementById("maxtemp2").innerHTML = "Max" + " " + avgTempcalc(max2) + "&#8451";
+                document.getElementById("maxtemp3").innerHTML = "Max" + " " + avgTempcalc(max3) + "&#8451";
+                document.getElementById("maxtemp4").innerHTML = "Max" + " " + avgTempcalc(max4) + "&#8451";
+                document.getElementById("maxtemp5").innerHTML = "Max" + " " + avgTempcalc(max5) + "&#8451";
 
                 document.getElementById("day1").innerHTML = avgTempcalc(day1) + "&#8451";
                 document.getElementById("day2").innerHTML = avgTempcalc(day2) + "&#8451";
@@ -41,31 +71,11 @@ let city;
 
 
 
-                // console.log(avgTempcalc([1,2,3,4,5]));
-                // console.log(tempArray);
-                // console.log(disc1);
-                // console.log(day2)
                 let disc1 = discrip.slice(0,8);
                 let disc2 = discrip.slice(8,16);
                 let disc3 = discrip.slice(16,24);
                 let disc4 = discrip.slice(24,32);
                 let disc5 = discrip.slice(32,40);
-
-
-
-
-                var allDescrip = [disc1, disc2, disc3, disc4, disc5];
-
-
-                for (let i = 0; i <allDescrip[0].length; i++) {
-                    // console.log(allDescrip);
-                    // console.log(discrip)
-                }
-                // document.getElementById("search").addEventListener("click", function cycle() {
-                //     for (let i = 0; i < 5 ; i++) {
-                //         console.log(cycle(disc1,disc2,disc3,disc4,disc5))
-                //     }
-                // });
 
 
                 let counts = {};
