@@ -4,7 +4,7 @@ let city;
         city = document.getElementById("fillin").value;
 
         //fetching data from the API
-        fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&APPID=106ed85f74e2ab147bdf97bdb04d0ba5`)
+        fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&APPID=106ed85f74e2ab147bdf97bdb04d0ba5`)
 
             .then((response => {
                 return response.json();
@@ -110,7 +110,6 @@ let city;
 
 
             })
-
 
     });
 
